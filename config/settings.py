@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'listings.apps.ListingsConfig',
     'doctors.apps.DoctorsConfig',
+    'django.contrib.humanize',
     "debug_toolbar"
 ]
 
