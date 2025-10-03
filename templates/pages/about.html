@@ -47,29 +47,27 @@
         <img src={% static "img/about.jpg" %} alt="" />
         <p class="mt-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
-          accusamus rem quia magnam magni dolorum facilis ullam minima
-          perferendis? Exercitationem at quaerat commodi id libero eveniet
-          harum perferendis laborum molestias quia.
         </p>
       </div>
       <div class="col-md-4">
+        {% if mvp_doctors %}
+        {% for doctor in mvp_doctors %}
         <div class="card">
           <img
             class="card-img-top"
-            {% comment %} fix {% endcomment %}
-            src={% static "img/doctors/kyle.jpg" %}
-            alt="Seller of the month"
+            src={{doctor.photo.url}}
+            alt="Doctor of the month"
           />
           <div class="card-body">
             <h5 class="card-title">Top Doctor</h5>
-            <h6 class="text-secondary">Kyle chan</h6>
+            <h6 class="text-secondary">{{doctor.name}}</h6>
             <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              nesciunt amet, illo itaque similique repellat. content.
+            {{doctor.description}}
             </p>
           </div>
         </div>
+        {% endfor %}
+        {% endif %}
       </div>
     </div>
   </div>
@@ -83,8 +81,8 @@
     aperiam, unde aliquid at similique!
   </h4>
   <hr />
-  {% comment %} fix {% endcomment %}
-  <a href="listings.html" class="btn btn-secondary text-white btn-lg"
+  
+  <a href={% url 'listings:listings' %} class="btn btn-secondary text-white btn-lg"
     >View Our Featured Listings</a
   >
 </section>
@@ -103,7 +101,7 @@
           class="rounded-circle mb-3 img-fluid"
           style="object-fit: cover; width: 300px; height: 300px"
         />
-        <h4>Kyle Chan</h4>
+        <h4>{{ doctor.name }}</h4>
         <p class="text-success">
           <i class="fas fa-award text-success"></i> Doctor
         </p>
@@ -117,36 +115,7 @@
         <h2>No doctors available</h2>
       </div>
       {% endif %}
-      <div class="col-md-4">
-        {% comment %} fix {% endcomment %}
-        <img
-          src={% static "img/doctors/emma.jpg" %}
-          alt=""
-          class="rounded-circle mb-3 img-fluid"
-          style="object-fit: cover; width: 300px; height: 300px"
-        />
-        <h4>Emma Lee</h4>
-        <p class="text-success">Doctor</p>
-        <hr />
-        <p><i class="fas fa-phone"></i> (852)-444-4444</p>
-        <p><i class="fas fa-envelope-open"></i> emma@healthcare.co</p>
       </div>
-
-      <div class="col-md-4">
-        {% comment %} fix {% endcomment %}
-        <img
-          src={% static "img/doctors/jenny.jpg" %}
-          alt=""
-          class="rounded-circle mb-3 img-fluid"
-          style="object-fit: cover; width: 300px; height: 300px"
-        />
-        <h4>Jenny Cheung</h4>
-        <p class="text-success">Doctor</p>
-        <hr />
-        <p><i class="fas fa-phone"></i> (852)-333-3333</p>
-        <p><i class="fas fa-envelope-open"></i> jenny@healthcare.co</p>
-      </div>
-    </div>
   </div>
 </section>
 
