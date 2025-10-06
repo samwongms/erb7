@@ -19,7 +19,7 @@ div.breadcrumbs {
 }   
 
 div.breadcrumbs a {
-    color: #333
+    color: #fff333
 }
 
 .module h2, 
@@ -33,7 +33,7 @@ input[type="submit"],
 input[type="button"],
 .submit-row input,
 a.button {
-    background: #2d4363;
+    background: #2fe20b;
     color: #fff;
 } 
 
