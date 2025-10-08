@@ -1,14 +1,17 @@
 from django.shortcuts import render
 from listings.models import Listing
 from doctors.models import Doctor
-from django.http import HttpResponse
-
-
+#from django.http import HttpResponse
+from listings.choices import district_choices, rooms_choices, night_choices
 
 # Create your views here.
 def index(request):
     listings = Listing.objects.filter(is_published=True)[:3]
-    context = {'listings': listings}
+    context = {'listings': listings,
+               'district_choices': district_choices,
+               "rooms_choices": rooms_choices,
+               "night_choices": night_choices,
+               } 
     return render(request, 'pages/index.html', context)
 
 #def index(request):
