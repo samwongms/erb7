@@ -1,16 +1,19 @@
-{% extends 'base.html' %} {% load static %} {% load humanize %} {% block content %}
- <section id="login" class="bg-light py-5">
+{% extends 'base.html' %} 
+{% load static %} {% load humanize %}
+<!-- block content-->
+{% block content %}
+    <section id="login" class="bg-light py-5">
       <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto">
             {% include 'partials/_alert.html' %}
             <div class="card">
               <div class="card-header bg-primary text-white">
-                <h4><i class="fas fa-user-plus"></i> Register</h4>
+                <h4><i class="fas fa-sign-in-alt"></i> Login</h4>
               </div>
               <div class="card-body">
                 <form action="{% url 'accounts:login' %}" method="POST">
-                  {% csrf_token %}
+                    {% csrf_token %}
                   <div class="form-group">
                     <label for="username">Username</label>
                     <input
@@ -21,35 +24,9 @@
                       required
                     />
                   </div>
+
                   <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input
-                      type="text"
-                      name="last_name"
-                      class="form-control"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="username">Username</label>
-                    <input
-                      type="text"
-                      name="username"
-                      class="form-control"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      class="form-control"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="password2">Password</label>
+                    <label for="password">Password</label>
                     <input
                       type="password"
                       name="password"
@@ -57,18 +34,10 @@
                       required
                     />
                   </div>
-                  <div class="form-group">
-                    <label for="password">Confirm Password</label>
-                    <input
-                      type="password"
-                      name="password2"
-                      class="form-control"
-                      required
-                    />
-                  </div>
+
                   <input
                     type="submit"
-                    value="Register"
+                    value="Login"
                     class="btn btn-secondary btn-block"
                   />
                 </form>
@@ -77,5 +46,5 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>  
 {% endblock %}

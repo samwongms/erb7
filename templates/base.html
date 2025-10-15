@@ -14,7 +14,7 @@
     <!-- Custom -->
     <link rel="stylesheet" href={% static 'css/style.css' %} />
 
-    <title>My name is Sam Wong</title>
+    <title>BC Health Care {% block title %} {% endblock %}</title>
   </head>
   <body>
     {% include 'partials/_topbar.html' %}
@@ -25,5 +25,6 @@
     <script src={% static 'js/bootstrap.bundle.min.js' %}></script>
     <script src={% static 'js/lightbox.min.js' %}></script>    
     <script src={% static 'js/main.js' %}></script>
+    <script src={% static 'js/modal.js' %}></script>
   </body>  
 </html>
