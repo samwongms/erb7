@@ -2,7 +2,7 @@
 {% comment %} load humanize {% endcomment %}
 {% load humanize %}
 <!-- block title -->
-{% block title %} {{listing.title}} {% endblock title %}
+{% block title %} | {{listing.title}} {% endblock title %}
 {% block content %} {% load static %}
 
     <section id="showcase-inner" class="py-5 text-white">
@@ -246,6 +246,7 @@
             <form action="{% url 'contacts:contact' %}" method="POST">
               {% csrf_token %}
               <input type="hidden" name="listing_id" value="{{listing.id}}" />
+              <input type="hidden" name="doctor_email" value="{{listing.doctor.email}}" />
               {% if user.is_authenticated %}
               <input type="hidden" name="user_id" value="{{user.id}}" />
               {% else %}

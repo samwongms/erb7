@@ -20,11 +20,19 @@ def contact(request):
             if has_contacted:
                 messages.error(request, 'You have already made an enquiry for this listing')
                 return redirect('listings:listing', listing_id=listing_id)
-        contact = Contact(listing=listing, listing_id=listing_id, name=name, email=email, phone=phone, message=message, user_id=user_id)
+        contact = Contact(
+            listing=listing,
+            listing_id=listing_id,
+            name=name,
+            email=email,
+            phone=phone,
+            message=message,
+            user_id=user_id
+            )
         contact.save()
         # Send email
         send_mail(
-            'Clinic Inquiry',
+            'Clinic Inquiry for' + listing,
             'there has been an inquiry for ' + listing + '. Sign into the admin panel for more info',
             "samwongms@gmail.com",
             [doctor_email,contact.email],
@@ -35,10 +43,7 @@ def contact(request):
         return redirect('listings:listing', listing_id=listing_id)
             
 
-def delete_contact(request, contact_id):
-    contact = get_object_or_404(Contact, pk=contact_id)
-    contact.delete()
-    return redirect('accounts:dashboard')
+
 
 def edit_contact(request, contact_id):
     contact = get_object_or_404(Contact, pk=contact_id)
@@ -47,7 +52,14 @@ def edit_contact(request, contact_id):
         form = ContactForm(request.POST, instance=contact)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Contact updated successfully.')
             return redirect('accounts:dashboard')
     else:
         form = ContactForm(instance=contact)
     return render(request, 'contacts/edit_contact.html', {'form': form, 'contact': contact})
+
+def delete_contact(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id)
+    contact.delete()
+    messages.success(request, 'Contact deleted successfully.')
+    return redirect('accounts:dashboard')
