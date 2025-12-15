@@ -21,16 +21,15 @@ import os
 load_dotenv()
 SECRET_KEY = os.getenv('SITE_SECRET_KEY')
 
+SECRET_KEY = 'django-insecure-=hsu6%w!o*9u%^@bs#@p%%%r+=t1*oku8yrm7+pw9rcjmq)@_)'
 
-
-
+ALLOWED_HOSTS = ["localhost","127.0.0.1"]
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [

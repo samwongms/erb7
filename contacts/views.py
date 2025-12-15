@@ -32,10 +32,10 @@ def contact(request):
         contact.save()
         # Send email
         send_mail(
-            'Clinic Inquiry for' + listing,
-            'there has been an inquiry for ' + listing + '. Sign into the admin panel for more info',
+            "Clinic Inquiry for" + listing,
+            "There has been an inquiry for " + listing + ". Sign into the admin panel for more info",
             "samwongms@gmail.com",
-            [doctor_email,contact.email],
+            [doctor_email, contact.email],
             fail_silently=False,
         )
 

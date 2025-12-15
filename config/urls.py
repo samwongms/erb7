@@ -29,6 +29,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ] + debug_toolbar_urls() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = "Medical Centre Admin"
-admin.site.site_title = "Medical Centre Admin Portal"
+admin.site.site_header = "ERB7 Medical Centre Admin Portal"
+admin.site.site_title = "ERB7 Medical Centre Admin Portal"
 admin.site.index_title = "Welcome to Medical Centre Admin Portal"
